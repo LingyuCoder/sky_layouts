@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>三栏全屏自适应布局</title>
+	<style>
+		/* Style reset 消除浏览器默认样式 */
+	    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,blockquote,th,td,p{margin:0;padding:0}input,button,select,textarea{outline:none}li{list-style:none}img{border:none}textarea{resize:none}body{color:#666;background:#fff;word-break:break-all;word-wrap:break-word;text-align:center}body,input,textarea{font-size:12px;font-family:\5b8b\4f53,Verdana,Arial}a{color:#305999;text-decoration:none;outline:none}a:hover{color:#090}.wrap{width:1000px;margin:0 auto;text-align:left;position:relative}/*clearfix*/.clearfix:after,.wrap:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix,.wrap{*+height:1%}
+
+		html, body {font-size: 20px; font-family: "Microsoft YaHei"; font-weight: bold; color: white; }
+		
+		.g-hd, .g-ft { background-color: #7E7E7E; }
+		.g-mn { background-color: #AFD9FD; }
+		.g-lsd, .g-rsd { background-color: #FF8686; }
+		
+		/*----------------------------------------------------
+		            布局核心代码
+		---------------------------------------------------- */
+		html, body {width: 100%; height: 100%; }
+		.g-hd, .g-ft {height: 100px; width: 100%;}
+		.g-hd, .g-ft, .g-lsd, .g-rsd, .g-mn {position: absolute;} 
+		.g-lsd, .g-rsd, .g-mn {top: 100px;bottom: 100px;overflow: auto;}
+		.g-lsd, .g-rsd {width: 300px;}
+		.g-mn {right: 300px;left: 300px;}
+		.g-rsd {right: 0 }
+		.g-ft {bottom: 0; }
+		
+	</style>
+</head>
+<body>
+	<div class="g-hd">这是Header</div>
+	<div class="g-lsd">
+		<p>这是左边栏</p>
+		<p style="font-size: 3em">这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话</p>
+	</div>
+	<div class="g-mn">
+		<p>这是内容区</p>
+		<p style="font-size: 3em">这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话</p>
+	</div>
+	<div class="g-rsd">
+		<p>这是右边栏</p>
+		<p style="font-size: 3em">这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话这是一大段废话</p>
+	</div>
+	<div class="g-ft">这是Footer</div>
+</body>
+</html>

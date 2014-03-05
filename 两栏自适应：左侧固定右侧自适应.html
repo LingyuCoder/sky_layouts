@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>两栏自适应：左侧固定右侧自适应</title>
+	<style>
+		/* Style reset 消除浏览器默认样式 */
+	    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,blockquote,th,td,p{margin:0;padding:0}input,button,select,textarea{outline:none}li{list-style:none}img{border:none}textarea{resize:none}body{color:#666;background:#fff;word-break:break-all;word-wrap:break-word;text-align:center}body,input,textarea{font-size:12px;font-family:\5b8b\4f53,Verdana,Arial}a{color:#305999;text-decoration:none;outline:none}a:hover{color:#090}.wrap{width:1000px;margin:0 auto;text-align:left;position:relative}/*clearfix*/.clearfix:after,.wrap:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix,.wrap{*+height:1%}
+	    
+		html, body {background-color: #f0f0f0; font-size: 20px; font-family: "Microsoft YaHei"; font-weight: bold; color: white; }
+		
+		/*----------------------------------------------------
+		            布局核心代码
+		---------------------------------------------------- */
+		.g-sd {float: left; width: 300px; background-color: #FF8686; }
+		.g-mn {background-color: #AFD9FD; *zoom: 1; overflow: auto; }
+
+	</style>
+</head>
+<body>
+	<div class="g-sd">
+		<p>左侧是固定宽度的，300px</p>
+		<p style="font-size: 3em;margin-top:100px">这是一大串的废话这是一大串的废话这是一大串的废话</p>
+	</div>
+	<div class="g-mn">
+		<p>右侧是自适应的, 兼容ie6</p>
+		<p style="font-size: 3em;margin-top:100px">这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话</p>
+	</div>
+</body>
+</html>
