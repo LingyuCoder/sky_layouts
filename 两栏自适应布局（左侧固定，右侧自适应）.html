@@ -9,15 +9,23 @@
 	    
 		html, body {background-color: #f0f0f0; font-size: 20px; font-family: "Microsoft YaHei"; font-weight: bold; color: white; }
 		
+		.g-hd, .g-ft {background-color: #7E7E7E;}
+		.g-mn {background-color: #AFD9FD; }
+		.g-sd {background-color: #FF8686; }
+
 		/*----------------------------------------------------
 		            布局核心代码
 		---------------------------------------------------- */
-		.g-sd {float: left; width: 300px; background-color: #FF8686; }
-		.g-mn {background-color: #AFD9FD; *zoom: 1; overflow: auto; }
+		.g-hd, .g-ft {height: 100px;}
+		.g-ft {clear: both;}
+		.g-sd {float: left; width: 300px; }
+		.g-mn {*zoom: 1; overflow: hidden; }
+
 
 	</style>
 </head>
 <body>
+	<div class="g-hd">这是header</div>
 	<div class="g-sd">
 		<p>左侧是固定宽度的，300px</p>
 		<p style="font-size: 3em;margin-top:100px">这是一大串的废话这是一大串的废话这是一大串的废话</p>
@@ -26,5 +34,6 @@
 		<p>右侧是自适应的, 兼容ie6</p>
 		<p style="font-size: 3em;margin-top:100px">这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话这是一大串的废话</p>
 	</div>
+	<div class="g-ft">这是footer</div>
 </body>
 </html>

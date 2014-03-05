@@ -8,17 +8,19 @@
 	    body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,blockquote,th,td,p{margin:0;padding:0}input,button,select,textarea{outline:none}li{list-style:none}img{border:none}textarea{resize:none}body{color:#666;background:#fff;word-break:break-all;word-wrap:break-word;text-align:center}body,input,textarea{font-size:12px;font-family:\5b8b\4f53,Verdana,Arial}a{color:#305999;text-decoration:none;outline:none}a:hover{color:#090}.wrap{width:1000px;margin:0 auto;text-align:left;position:relative}/*clearfix*/.clearfix:after,.wrap:after{content:".";display:block;height:0;clear:both;visibility:hidden}.clearfix,.wrap{*+height:1%}
 
 		html, body {font-size: 20px; font-family: "Microsoft YaHei"; font-weight: bold; color: white; }
-
+		.g-mn {background-color: #AFD9FD; }
+		.g-sd {background-color: #FF8686; }
+		.g-hd, .g-ft {background: #7E7E7E; }
 		/*----------------------------------------------------
 		            布局核心代码
 		---------------------------------------------------- */
 		html, body {width: 100%; height: 100%; }
 		.g-ctn {position: relative; min-height: 100%; }
-			.g-ctn .g-mn {padding-top: 100px; padding-bottom: 100px; overflow: hidden; }
-				.g-ctn .g-mn .g-sd {float: left; height: 600px; width: 300px; background-color: #FF8686; }
-				.g-ctn .g-mn .g-ct {height: 600px; background-color: #AFD9FD; overflow: hidden; zoom:1; }
-		.g-hd {height: 100px; margin-bottom: -100px; background: #7E7E7E; }
-		.g-ft {height:100px; margin-top: -100px; background: #7E7E7E; }
+			.g-ctn .g-ct {padding-top: 100px; padding-bottom: 100px; overflow: hidden; }
+				.g-ctn .g-ct .g-sd {float: left; height: 600px; width: 300px; }
+				.g-ctn .g-ct .g-mn {height: 600px; overflow: hidden; zoom:1; }
+		.g-hd {height: 100px; margin-bottom: -100px; }
+		.g-ft {height:100px; margin-top: -100px; }
 	</style>
 </head>
 <body>
@@ -26,11 +28,11 @@
 		<p>这是Header</p>
 	</div>
 	<div class="g-ctn">
-		<div class="g-mn">
+		<div class="g-ct">
 			<div class="g-sd">
 				<p>这是侧边栏</p>
 			</div>
-			<div class="g-ct">
+			<div class="g-mn">
 				<p>这是主文本区</p>
 				<p>此布局footer自适应，当主文本区或侧边栏不满一页时，footer位于屏幕下端。 如果主文本区和侧边栏高度超过一页时，footer将在两者之中height最大元素的下方可手动调节侧边栏和主文本区高度查看效果,兼容ie6</p>
 			</div>
