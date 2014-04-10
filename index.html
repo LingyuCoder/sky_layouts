@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>简易布局 by 天镶 by LingyuCoder</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>简易布局 by 天镶</h1>
+        <h2>一些简单CSS布局</h2>
+        <a href="https://github.com/LingyuCoder/sky_layouts" class="button"><small>View project on</small>GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h2>
+<a name="%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AF%9D" class="anchor" href="#%E5%89%8D%E9%9D%A2%E7%9A%84%E8%AF%9D"><span class="octicon octicon-link"></span></a>前面的话</h2>
+
+<p>最近看前端相关面试题，看到很多关于CSS布局的面试题。于是乎自己实现了几个常用的布局，这里记录一下实现。所有的布局均已上传到github，命名为<a href="https://github.com/LingyuCoder/sky_layouts">sky_layouts项目</a></p>
+
+<p>所有的页面都引入了一段CSS reset的代码，用于屏蔽不同浏览器之间的差异</p>
+
+<div class="highlight highlight-css"><pre><span class="c">/* Style reset 消除浏览器默认样式 */</span>
+<span class="nt">body</span><span class="o">,</span><span class="nt">div</span><span class="o">,</span><span class="nt">dl</span><span class="o">,</span><span class="nt">dt</span><span class="o">,</span><span class="nt">dd</span><span class="o">,</span><span class="nt">ul</span><span class="o">,</span><span class="nt">ol</span><span class="o">,</span><span class="nt">li</span><span class="o">,</span><span class="nt">h1</span><span class="o">,</span><span class="nt">h2</span><span class="o">,</span><span class="nt">h3</span><span class="o">,</span><span class="nt">h4</span><span class="o">,</span><span class="nt">h5</span><span class="o">,</span><span class="nt">h6</span><span class="o">,</span><span class="nt">pre</span><span class="o">,</span><span class="nt">code</span><span class="o">,</span><span class="nt">form</span><span class="o">,</span><span class="nt">fieldset</span><span class="o">,</span><span class="nt">legend</span><span class="o">,</span><span class="nt">input</span><span class="o">,</span><span class="nt">button</span><span class="o">,</span><span class="nt">textarea</span><span class="o">,</span><span class="nt">blockquote</span><span class="o">,</span><span class="nt">th</span><span class="o">,</span><span class="nt">td</span><span class="o">,</span><span class="nt">p</span><span class="p">{</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">padding</span><span class="o">:</span><span class="m">0</span><span class="p">}</span><span class="nt">input</span><span class="o">,</span><span class="nt">button</span><span class="o">,</span><span class="nt">select</span><span class="o">,</span><span class="nt">textarea</span><span class="p">{</span><span class="k">outline</span><span class="o">:</span><span class="k">none</span><span class="p">}</span><span class="nt">li</span><span class="p">{</span><span class="k">list-style</span><span class="o">:</span><span class="k">none</span><span class="p">}</span><span class="nt">img</span><span class="p">{</span><span class="k">border</span><span class="o">:</span><span class="k">none</span><span class="p">}</span><span class="nt">textarea</span><span class="p">{</span><span class="n">resize</span><span class="o">:</span><span class="k">none</span><span class="p">}</span><span class="nt">body</span><span class="p">{</span><span class="k">color</span><span class="o">:</span><span class="m">#666</span><span class="p">;</span><span class="k">background</span><span class="o">:</span><span class="m">#fff</span><span class="p">;</span><span class="n">word</span><span class="o">-</span><span class="n">break</span><span class="o">:</span><span class="n">break</span><span class="o">-</span><span class="n">all</span><span class="p">;</span><span class="n">word</span><span class="o">-</span><span class="n">wrap</span><span class="o">:</span><span class="n">break</span><span class="o">-</span><span class="n">word</span><span class="p">;</span><span class="k">text-align</span><span class="o">:</span><span class="k">center</span><span class="p">}</span><span class="nt">body</span><span class="o">,</span><span class="nt">input</span><span class="o">,</span><span class="nt">textarea</span><span class="p">{</span><span class="k">font-size</span><span class="o">:</span><span class="m">12px</span><span class="p">;</span><span class="k">font-family</span><span class="o">:</span><span class="err">\</span><span class="m">5</span><span class="n">b8b</span><span class="err">\</span><span class="m">4</span><span class="n">f53</span><span class="o">,</span><span class="n">Verdana</span><span class="o">,</span><span class="n">Arial</span><span class="p">}</span><span class="nt">a</span><span class="p">{</span><span class="k">color</span><span class="o">:</span><span class="m">#305999</span><span class="p">;</span><span class="k">text-decoration</span><span class="o">:</span><span class="k">none</span><span class="p">;</span><span class="k">outline</span><span class="o">:</span><span class="k">none</span><span class="p">}</span><span class="nt">a</span><span class="nd">:hover</span><span class="p">{</span><span class="k">color</span><span class="o">:</span><span class="m">#090</span><span class="p">}</span><span class="nc">.wrap</span><span class="p">{</span><span class="k">width</span><span class="o">:</span><span class="m">1000px</span><span class="p">;</span><span class="k">margin</span><span class="o">:</span><span class="m">0</span> <span class="k">auto</span><span class="p">;</span><span class="k">text-align</span><span class="o">:</span><span class="k">left</span><span class="p">;</span><span class="k">position</span><span class="o">:</span><span class="k">relative</span><span class="p">}</span><span class="c">/*clearfix*/</span><span class="nc">.clearfix</span><span class="nd">:after</span><span class="o">,</span><span class="nc">.wrap</span><span class="nd">:after</span><span class="p">{</span><span class="k">content</span><span class="o">:</span><span class="s2">"."</span><span class="p">;</span><span class="k">display</span><span class="o">:</span><span class="k">block</span><span class="p">;</span><span class="k">height</span><span class="o">:</span><span class="m">0</span><span class="p">;</span><span class="k">clear</span><span class="o">:</span><span class="k">both</span><span class="p">;</span><span class="k">visibility</span><span class="o">:</span><span class="k">hidden</span><span class="p">}</span><span class="nc">.clearfix</span><span class="o">,</span><span class="nc">.wrap</span><span class="p">{</span><span class="o">*+</span><span class="k">height</span><span class="o">:</span><span class="m">1</span><span class="o">%</span><span class="p">}</span>
+</pre></div>
+
+<p>另外这里所有的header区、footer区的高度都为100px，侧边栏都是300px</p>
+
+<h2>
+<a name="%E5%8D%95%E6%A0%8F%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80%E9%A6%96%E5%B0%BE%E5%85%A8%E5%B1%8F" class="anchor" href="#%E5%8D%95%E6%A0%8F%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80%E9%A6%96%E5%B0%BE%E5%85%A8%E5%B1%8F"><span class="octicon octicon-link"></span></a>单栏水平居中布局（首尾全屏）</h2>
+
+<p>这种布局很常见，比如新浪微博的布局就是这样，header宽度为全屏，内容区宽度固定</p>
+
+<p>这种布局有三部分构成:</p>
+
+<ul>
+<li>header区，g-hd</li>
+<li>main区，g-mn</li>
+<li>footer区，g-ft</li>
+</ul><h3>
+<a name="html%E7%BB%93%E6%9E%84" class="anchor" href="#html%E7%BB%93%E6%9E%84"><span class="octicon octicon-link"></span></a>HTML结构</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-hd"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-mn"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ft"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="css%E6%A0%B7%E5%BC%8F" class="anchor" href="#css%E6%A0%B7%E5%BC%8F"><span class="octicon octicon-link"></span></a>CSS样式</h3>
+
+<div class="highlight highlight-css"><pre><span class="nc">.g-hd</span><span class="o">,</span> <span class="nc">.g-ft</span> <span class="p">{</span>
+    <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="nc">.g-mn</span> <span class="p">{</span>
+    <span class="k">max-width</span><span class="o">:</span> <span class="m">1000px</span><span class="p">;</span>
+    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="k">auto</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="%E8%AF%B4%E6%98%8E" class="anchor" href="#%E8%AF%B4%E6%98%8E"><span class="octicon octicon-link"></span></a>说明</h3>
+
+<p>这里技巧不多，使用了一个很常见的水平居中样式<code>margin: 0 auto</code>。需要注意的是<code>max-width: 1000px</code>这个属性，这个属性时为了自适应。当浏览器窗口宽度大于1000px时，main区将以1000px的宽度居中显示。如果浏览器窗口宽度小于等于1000px时，页面的宽度将是浏览器窗口宽度</p>
+
+<h3>
+<a name="%E6%95%88%E6%9E%9C" class="anchor" href="#%E6%95%88%E6%9E%9C"><span class="octicon octicon-link"></span></a>效果</h3>
+
+<p><a href="http://jsfiddle.net/skyinlayer/24rT2/">jsfiddle地址</a></p>
+
+ 
+
+<h3>
+<a name="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7" class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7"><span class="octicon octicon-link"></span></a>浏览器兼容性</h3>
+
+<p>兼容ie8+和所有现代浏览器，如果设定为固定宽度，则兼容ie6</p>
+
+<h2>
+<a name="%E5%8D%95%E6%A0%8F%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80%E5%85%A8%E9%83%A8%E5%B1%85%E4%B8%AD" class="anchor" href="#%E5%8D%95%E6%A0%8F%E6%B0%B4%E5%B9%B3%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80%E5%85%A8%E9%83%A8%E5%B1%85%E4%B8%AD"><span class="octicon octicon-link"></span></a>单栏水平居中布局（全部居中）</h2>
+
+<p>实现思路和上面类似，不过这次把header区，main区，footer区全部放在一个容器中，然后把这个容器设定居中（记得设定max-width）</p>
+
+<h3>
+<a name="html%E7%BB%93%E6%9E%84-1" class="anchor" href="#html%E7%BB%93%E6%9E%84-1"><span class="octicon octicon-link"></span></a>HTML结构</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ctn"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-hd"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-mn"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ft"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="css%E6%A0%B7%E5%BC%8F-1" class="anchor" href="#css%E6%A0%B7%E5%BC%8F-1"><span class="octicon octicon-link"></span></a>CSS样式</h3>
+
+<div class="highlight highlight-css"><pre><span class="nc">.g-ctn</span> <span class="p">{</span> <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="k">auto</span><span class="p">;</span> <span class="k">max-width</span><span class="o">:</span> <span class="m">1000px</span><span class="p">;}</span>
+<span class="nc">.g-hd</span><span class="o">,</span> <span class="nc">.g-ft</span> <span class="p">{</span><span class="k">height</span><span class="o">:</span> <span class="m">100px</span> <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C" class="anchor" href="#%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C"><span class="octicon octicon-link"></span></a>预览效果</h3>
+
+<p><a href="http://jsfiddle.net/skyinlayer/24rT2/1/">jsfiddle地址</a></p>
+
+ 
+
+<h3>
+<a name="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-1" class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-1"><span class="octicon octicon-link"></span></a>浏览器兼容性</h3>
+
+<p>兼容ie8+和所有现代浏览器，如果设定为固定宽度，则兼容ie6</p>
+
+<h2>
+<a name="%E5%85%A8%E5%B1%8F%E4%B8%A4%E6%A0%8F%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80" class="anchor" href="#%E5%85%A8%E5%B1%8F%E4%B8%A4%E6%A0%8F%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80"><span class="octicon octicon-link"></span></a>全屏两栏自适应布局</h2>
+
+<p>这一类布局分为4个部分：</p>
+
+<ul>
+<li>header区 g-hd</li>
+<li>footer区 g-ft</li>
+<li>aside区 g-sd</li>
+<li>main区 g-mn</li>
+</ul><p>这种布局一般用于应用类的页面，所有区块全部在一个屏幕中固定显示，内容溢出时使用滚动条浏览</p>
+
+<h3>
+<a name="html%E7%BB%93%E6%9E%84-2" class="anchor" href="#html%E7%BB%93%E6%9E%84-2"><span class="octicon octicon-link"></span></a>HTML结构</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-hd"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-sd"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-mn"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ft"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="css%E6%A0%B7%E5%BC%8F-2" class="anchor" href="#css%E6%A0%B7%E5%BC%8F-2"><span class="octicon octicon-link"></span></a>CSS样式</h3>
+
+<div class="highlight highlight-css"><pre><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span><span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-hd</span><span class="o">,</span> <span class="nc">.g-ft</span> <span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span>  <span class="p">}</span>
+<span class="nc">.g-hd</span> <span class="p">{</span><span class="k">top</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-ft</span> <span class="p">{</span><span class="k">bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-sd</span><span class="o">,</span> <span class="nc">.g-mn</span> <span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;</span> <span class="k">top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="k">bottom</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-sd</span> <span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-mn</span> <span class="p">{</span><span class="k">left</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span> <span class="k">right</span><span class="o">:</span> <span class="m">0px</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="%E8%AF%B4%E6%98%8E-1" class="anchor" href="#%E8%AF%B4%E6%98%8E-1"><span class="octicon octicon-link"></span></a>说明</h3>
+
+<p>这里首先需要注意<code>html, body {height: 100%; width: 100%; }</code>，这一句是常用的将页面的宽度、高度定义为浏览器窗口的大小一致。然后将四个区块全都设置为<code>position: absolute</code>绝对定位，通过设定每个区块相对于根元素的位置，来拉开区块。比如main区，相对上下都有100px的空隙，左侧300px的空隙(这里侧边栏设定为300px)，所以其css样式为<code>.g-mn {position: absolute; top: 100px; bottom: 100px;left: 300px;}</code>其他也是一样的方式。需要注意给侧边栏和内容区增加<code>overflow:auto</code>，这样在其内容溢出时，显示滚动条</p>
+
+<h3>
+<a name="%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-1" class="anchor" href="#%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-1"><span class="octicon octicon-link"></span></a>预览效果</h3>
+
+<p><a href="http://jsfiddle.net/skyinlayer/24rT2/2/">jsfiddle地址</a></p>
+
+ 
+
+<h3>
+<a name="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-2" class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-2"><span class="octicon octicon-link"></span></a>浏览器兼容性</h3>
+
+<p>兼容所有ie8+和现代浏览器</p>
+
+<h2>
+<a name="%E5%85%A8%E5%B1%8F%E4%B8%89%E6%A0%8F%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80" class="anchor" href="#%E5%85%A8%E5%B1%8F%E4%B8%89%E6%A0%8F%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80"><span class="octicon octicon-link"></span></a>全屏三栏自适应布局</h2>
+
+<p>这一类布局有5个部分：</p>
+
+<ul>
+<li>header区 g-hd</li>
+<li>footer区 g-ft</li>
+<li>main区 g-mn</li>
+<li>左侧边栏 g-lsd</li>
+<li>右测边栏 g-rsd</li>
+</ul><h3>
+<a name="html%E7%BB%93%E6%9E%84-3" class="anchor" href="#html%E7%BB%93%E6%9E%84-3"><span class="octicon octicon-link"></span></a>HTML结构</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-hd"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-lsd"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-mn"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-rsd"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ft"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="css%E6%A0%B7%E5%BC%8F-3" class="anchor" href="#css%E6%A0%B7%E5%BC%8F-3"><span class="octicon octicon-link"></span></a>CSS样式</h3>
+
+<div class="highlight highlight-css"><pre><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-hd</span><span class="o">,</span> <span class="nc">.g-ft</span> <span class="p">{</span><span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;}</span>
+<span class="nc">.g-hd</span><span class="o">,</span> <span class="nc">.g-ft</span><span class="o">,</span> <span class="nc">.g-lsd</span><span class="o">,</span> <span class="nc">.g-rsd</span><span class="o">,</span> <span class="nc">.g-mn</span> <span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">absolute</span><span class="p">;}</span> 
+<span class="nc">.g-lsd</span><span class="o">,</span> <span class="nc">.g-rsd</span><span class="o">,</span> <span class="nc">.g-mn</span> <span class="p">{</span><span class="k">top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span><span class="k">bottom</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span><span class="k">overflow</span><span class="o">:</span> <span class="k">auto</span><span class="p">;}</span>
+<span class="nc">.g-lsd</span><span class="o">,</span> <span class="nc">.g-rsd</span> <span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;}</span>
+<span class="nc">.g-mn</span> <span class="p">{</span><span class="k">right</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span><span class="k">left</span><span class="o">:</span> <span class="m">300px</span><span class="p">;}</span>
+<span class="nc">.g-rsd</span> <span class="p">{</span><span class="k">right</span><span class="o">:</span> <span class="m">0</span> <span class="p">}</span>
+<span class="nc">.g-ft</span> <span class="p">{</span><span class="k">bottom</span><span class="o">:</span> <span class="m">0</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="%E8%AF%B4%E6%98%8E-2" class="anchor" href="#%E8%AF%B4%E6%98%8E-2"><span class="octicon octicon-link"></span></a>说明</h3>
+
+<p>和上面全屏两栏自适应布局一样，首先使用<code>html, body {width: 100%; height: 100%; }</code>设定整个页面的大小为浏览器窗口大小，然后通过上例同样的方式将所有元素设定为绝对位置，通过偏移拉长区块。同时左侧边栏、内容区、右侧边栏都需要设定<code>overflow: auto</code>使得内容溢出时显示滚动条</p>
+
+<h3>
+<a name="%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-2" class="anchor" href="#%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-2"><span class="octicon octicon-link"></span></a>预览效果</h3>
+
+<p><a href="http://jsfiddle.net/skyinlayer/24rT2/3/">jsfiddle地址</a></p>
+
+ 
+
+<h3>
+<a name="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-3" class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-3"><span class="octicon octicon-link"></span></a>浏览器兼容性</h3>
+
+<p>兼容所有ie8+和现代浏览器</p>
+
+<h2>
+<a name="%E4%B8%A4%E6%A0%8F%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E5%B7%A6%E4%BE%A7%E5%9B%BA%E5%AE%9A%E5%8F%B3%E4%BE%A7%E8%87%AA%E9%80%82%E5%BA%94" class="anchor" href="#%E4%B8%A4%E6%A0%8F%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80%E5%B7%A6%E4%BE%A7%E5%9B%BA%E5%AE%9A%E5%8F%B3%E4%BE%A7%E8%87%AA%E9%80%82%E5%BA%94"><span class="octicon octicon-link"></span></a>两栏自适应布局（左侧固定，右侧自适应）</h2>
+
+<p>这个分四块：</p>
+
+<ul>
+<li>header区 g-hd</li>
+<li>aside区 g-sd</li>
+<li>main区 g-mn</li>
+<li>footer区 g-ft</li>
+</ul><h3>
+<a name="html%E7%BB%93%E6%9E%84-4" class="anchor" href="#html%E7%BB%93%E6%9E%84-4"><span class="octicon octicon-link"></span></a>HTML结构</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-hd"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-sd"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-mn"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ft"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="css%E6%A0%B7%E5%BC%8F-4" class="anchor" href="#css%E6%A0%B7%E5%BC%8F-4"><span class="octicon octicon-link"></span></a>CSS样式</h3>
+
+<div class="highlight highlight-css"><pre><span class="nc">.g-hd</span><span class="o">,</span> <span class="nc">.g-ft</span> <span class="p">{</span><span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;}</span>
+<span class="nc">.g-ft</span> <span class="p">{</span><span class="k">clear</span><span class="o">:</span> <span class="k">both</span><span class="p">;}</span>
+<span class="nc">.g-sd</span> <span class="p">{</span><span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-mn</span> <span class="p">{</span><span class="o">*</span><span class="n">zoom</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="%E8%AF%B4%E6%98%8E-3" class="anchor" href="#%E8%AF%B4%E6%98%8E-3"><span class="octicon octicon-link"></span></a>说明</h3>
+
+<p>常见情况，侧边栏宽度固定，右侧内容区自适应布局。这里使BFC，设定aside区为浮动，在main区触发BFC，使得不与aside区重叠。同时由于有浮动出现，所以在footer区加上<code>clear:both</code>来清除浮动。在老式的ie中使用<code>zoom:1</code>来达到BFC的效果</p>
+
+<h3>
+<a name="%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88" class="anchor" href="#%E6%95%88%E6%9E%9C%E9%A2%84%E8%A7%88"><span class="octicon octicon-link"></span></a>效果预览</h3>
+
+<p><a href="http://jsfiddle.net/skyinlayer/24rT2/4/">jsfiddle地址</a></p>
+
+ 
+
+<h3>
+<a name="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9" class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9"><span class="octicon octicon-link"></span></a>浏览器兼容</h3>
+
+<p>兼容ie6+及所有现代浏览器</p>
+
+<h2>
+<a name="%E4%B8%A4%E6%A0%8F%E5%BA%95%E9%83%A8%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80" class="anchor" href="#%E4%B8%A4%E6%A0%8F%E5%BA%95%E9%83%A8%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80"><span class="octicon octicon-link"></span></a>两栏底部自适应布局</h2>
+
+<p>这个分4个区块：</p>
+
+<ul>
+<li>header区 g-hd</li>
+<li>footer区 g-ft</li>
+<li>main区 g-mn</li>
+<li>aside区 g-sd</li>
+</ul><p>这个需求比较有意思，主要是需要footer在内容aside区、main区内容都比较少时（不满一个屏幕），显示在页面底部，而当aisde区、main区内容增多时，footer区显示在这两个区下面（高度较高的元素下面）</p>
+
+<h3>
+<a name="html%E7%BB%93%E6%9E%84-5" class="anchor" href="#html%E7%BB%93%E6%9E%84-5"><span class="octicon octicon-link"></span></a>HTML结构</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-hd"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ctn"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ct"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-sd"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-mn"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ft"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="css%E6%A0%B7%E5%BC%8F-5" class="anchor" href="#css%E6%A0%B7%E5%BC%8F-5"><span class="octicon octicon-link"></span></a>CSS样式</h3>
+
+<div class="highlight highlight-css"><pre><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-ctn</span> <span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="k">min-height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.g-ctn</span> <span class="nc">.g-ct</span> <span class="p">{</span><span class="k">padding-top</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="k">padding-bottom</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span> <span class="p">}</span>
+        <span class="nc">.g-ctn</span> <span class="nc">.g-ct</span> <span class="nc">.g-sd</span> <span class="p">{</span><span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span> <span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span> <span class="p">}</span>
+        <span class="nc">.g-ctn</span> <span class="nc">.g-ct</span> <span class="nc">.g-mn</span> <span class="p">{</span><span class="k">height</span><span class="o">:</span> <span class="m">600px</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span> <span class="n">zoom</span><span class="o">:</span><span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-hd</span> <span class="p">{</span><span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="k">margin-bottom</span><span class="o">:</span> <span class="m">-100px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-ft</span> <span class="p">{</span><span class="k">height</span><span class="o">:</span><span class="m">100px</span><span class="p">;</span> <span class="k">margin-top</span><span class="o">:</span> <span class="m">-100px</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="%E8%AF%B4%E6%98%8E-4" class="anchor" href="#%E8%AF%B4%E6%98%8E-4"><span class="octicon octicon-link"></span></a>说明</h3>
+
+<p>首先需要设定html的高度为一个页面以方便将一个div（g-ctn）设定为最小大小为浏览器窗口大小。然后针对这个g-ctn，header区（g-hd）和footer区（g-ft），利用负margin来将他们定位到g-ctn里面，这样g-ctn的大小就是整个页面了。然后在g-ctn中顶一个一个div（g-ct），为其设定<code>padding-top</code>和<code>padding-bottom</code>来防止内容区和header区与footer区重叠。然后在这个区块触发BFC，来清除子元素浮动，清除aside区（g-sd）的浮动。在里面放入aside区和main区，将aside区设为<code>float: left</code>，在main区上触发BFC，防止其余aside区重叠。这样布局就完成了</p>
+
+<h3>
+<a name="%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-3" class="anchor" href="#%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-3"><span class="octicon octicon-link"></span></a>预览效果</h3>
+
+<p><a href="http://jsfiddle.net/skyinlayer/24rT2/5/">jsfiddle地址</a></p>
+
+ 
+
+<h3>
+<a name="%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-4" class="anchor" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E5%85%BC%E5%AE%B9%E6%80%A7-4"><span class="octicon octicon-link"></span></a>浏览器兼容性</h3>
+
+<p>兼容ie6+和所有现代浏览器</p>
+
+<h2>
+<a name="%E4%B8%89%E6%A0%8F%E5%BA%95%E9%83%A8%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80" class="anchor" href="#%E4%B8%89%E6%A0%8F%E5%BA%95%E9%83%A8%E8%87%AA%E9%80%82%E5%BA%94%E5%B8%83%E5%B1%80"><span class="octicon octicon-link"></span></a>三栏底部自适应布局</h2>
+
+<p>这个布局分5块：</p>
+
+<ul>
+<li>header区 g-hd</li>
+<li>footer区 g-ft</li>
+<li>main区 g-mn</li>
+<li>左边栏区 g-lsd</li>
+<li>右边栏区 g-rsd</li>
+</ul><h3>
+<a name="html%E7%BB%93%E6%9E%84-6" class="anchor" href="#html%E7%BB%93%E6%9E%84-6"><span class="octicon octicon-link"></span></a>HTML结构</h3>
+
+<div class="highlight highlight-html"><pre><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-hd"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ctn"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ct"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-lsd"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-rsd"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-mn"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"g-ft"</span><span class="nt">&gt;&lt;/div&gt;</span>
+</pre></div>
+
+<h3>
+<a name="css%E6%A0%B7%E5%BC%8F-6" class="anchor" href="#css%E6%A0%B7%E5%BC%8F-6"><span class="octicon octicon-link"></span></a>CSS样式</h3>
+
+<div class="highlight highlight-css"><pre><span class="nt">html</span><span class="o">,</span> <span class="nt">body</span> <span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-hd</span> <span class="p">{</span><span class="k">margin-bottom</span><span class="o">:</span> <span class="m">-100px</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-ft</span> <span class="p">{</span><span class="k">margin-top</span><span class="o">:</span> <span class="m">-100px</span><span class="p">;</span> <span class="k">height</span><span class="o">:</span> <span class="m">100px</span><span class="p">;</span> <span class="p">}</span>
+<span class="nc">.g-ctn</span> <span class="p">{</span><span class="k">position</span><span class="o">:</span> <span class="k">relative</span><span class="p">;</span> <span class="k">min-height</span><span class="o">:</span> <span class="m">100</span><span class="o">%</span><span class="p">;</span> <span class="p">}</span>
+    <span class="nc">.g-ctn</span> <span class="nc">.g-ct</span> <span class="p">{</span><span class="k">padding</span><span class="o">:</span> <span class="m">100px</span> <span class="m">0</span><span class="p">;</span> <span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span> <span class="o">*</span><span class="n">zoom</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+        <span class="nc">.g-ctn</span> <span class="nc">.g-ct</span> <span class="nc">.g-lsd</span> <span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span> <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span> <span class="p">}</span>
+        <span class="nc">.g-ctn</span> <span class="nc">.g-ct</span> <span class="nc">.g-rsd</span> <span class="p">{</span><span class="k">width</span><span class="o">:</span> <span class="m">300px</span><span class="p">;</span> <span class="k">float</span><span class="o">:</span> <span class="k">right</span><span class="p">;</span> <span class="p">}</span>
+        <span class="nc">.g-ctn</span> <span class="nc">.g-ct</span> <span class="nc">.g-mn</span> <span class="p">{</span><span class="k">overflow</span><span class="o">:</span> <span class="k">hidden</span><span class="p">;</span> <span class="o">*</span><span class="n">zoom</span><span class="o">:</span> <span class="m">1</span><span class="p">;</span> <span class="p">}</span>
+</pre></div>
+
+<h3>
+<a name="%E8%AF%B4%E6%98%8E-5" class="anchor" href="#%E8%AF%B4%E6%98%8E-5"><span class="octicon octicon-link"></span></a>说明</h3>
+
+<p>和上面底部两栏自适应几乎一样，不过这一次分为左边栏和右边栏，所以需要注意一下，把两个侧边栏写在前面，后面写main区，否则会出现main区直接把右边栏挤开的情况</p>
+
+<h3>
+<a name="%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-4" class="anchor" href="#%E9%A2%84%E8%A7%88%E6%95%88%E6%9E%9C-4"><span class="octicon octicon-link"></span></a>预览效果</h3>
+
+<p><a href="http://jsfiddle.net/skyinlayer/24rT2/6/">jsfiddle地址</a></p>
+
+ 
+
+<h2>
+<a name="%E6%80%BB%E7%BB%93" class="anchor" href="#%E6%80%BB%E7%BB%93"><span class="octicon octicon-link"></span></a>总结</h2>
+
+<p>还有很多很多的布局没有实现，有时间实现一些其他的布局，布局前端面试还是问的很多的，手动实现了一下发现，还是需要动手的，否则直接问真心不一定能答上来</p>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/LingyuCoder/sky_layouts/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/LingyuCoder/sky_layouts/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/LingyuCoder/sky_layouts"></a> is maintained by <a href="https://github.com/LingyuCoder">LingyuCoder</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
